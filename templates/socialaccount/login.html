@@ -1,0 +1,33 @@
+{% load static %}
+{% load i18n %}
+{% load allauth %}
+<!DOCTYPE html>
+<head>
+    <link href='{% static 'social/style.css' %}' rel="stylesheet">
+</head>
+<body>
+{% block content %}
+    {% if process == "connect" %}
+        {% element h1 %}
+            {% blocktrans with provider.name as provider %}Connect {{ provider }}{% endblocktrans %}
+        {% endelement %}
+    {% else %}
+        {% element h1 %}
+            {% blocktrans with provider.name as provider %}
+                <div class='text'>Sign in via {{ provider }}</div>
+            {% endblocktrans %}
+        {% endelement %}
+    {% endif %}
+    {% element form method="post" no_visible_fields=True %}
+        {% slot actions %}
+            {% csrf_token %}
+            <button class="cybr-btn">
+                Submit<span aria-hidden>_</span>
+                <span aria-hidden class="cybr-btn__glitch">Continue</span>
+                <span aria-hidden class="cybr-btn__tag">AGR</span>
+            </button>
+        {% endslot %}
+    {% endelement %}
+{% endblock content %}
+<body>
+

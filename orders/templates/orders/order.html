@@ -1,0 +1,75 @@
+{% load static humanize %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <link href="{% static 'orders/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            <img src="{% static 'orders/images/logo.png' %}" alt="Description of the image">
+        </div>
+        <div class="section-main">
+            <form action="{% url 'orders:order' %}" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <div class="thanks">
+                    <section>
+                        <h1>Thanks For Your Order!</h1>
+                    </section>
+                    <div class="centered-image">
+                        <img src="{% static 'orders/images/group_1.png' %}" alt="Description of the image">
+                    </div>
+                    <div class="text-section">
+                        Thank you for your recent order. We are pleased to confirm that we have received your order and it is currently being processed.
+                    </div>
+                    <div class="columns-container">
+
+                            <div class="row">
+                                <div class="column">
+                                    <h3>Name</h3>
+                                    <label for="{{ form.name.id_for_label }}"></label>
+                                    {{ form.name }}
+                                </div>
+                                <div class="column">
+                                    <h3>Surname</h3>
+                                    <label for="{{ form.surname.id_for_label }}"></label>
+                                    {{ form.surname }}
+                                </div>
+                            </div>
+                            <div class="column-wide">
+                                <h3>Agent</h3>
+                                <label for="{{ form.agent.id_for_label }}"></label>
+                                {{ form.agent }}
+                            </div>
+                            <div class="column-wide">
+                                <h3>Phone Number</h3>
+                                <label for="{{ form.phoneNumber.id_for_label }}"></label>
+                                {{ form.phoneNumber }}
+                            </div>
+
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <hr class="separator">
+                    {% for basket in baskets %}
+                    <div class="item">
+                        <div class="item-name">{{ basket.apartment.name }}$(x{{ basket.quantity }})</div>
+                        <div class="item-price">{{ basket.sum_price|intcomma }}$</div>
+                    </div>
+                    {% endfor %}
+                    <div class="total">
+                        <p class="total-text">Total: ${{ baskets.total_sum|intcomma }}</p>
+                    </div>
+                </div>
+                <div class="central">
+                    <button class="glow-on-hover" type="submit">CHECKOUT</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

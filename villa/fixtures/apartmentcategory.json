@@ -1,0 +1,34 @@
+[
+{
+    "model": "villa.apartmentcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Luxury Villa",
+        "description": ""
+    }
+},
+{
+    "model": "villa.apartmentcategory",
+    "pk": 2,
+    "fields": {
+        "name": "Apartment",
+        "description": ""
+    }
+},
+{
+    "model": "villa.apartmentcategory",
+    "pk": 3,
+    "fields": {
+        "name": "Penthouse",
+        "description": ""
+    }
+},
+{
+    "model": "villa.apartmentcategory",
+    "pk": 4,
+    "fields": {
+        "name": "Modern Condo",
+        "description": ""
+    }
+}
+]

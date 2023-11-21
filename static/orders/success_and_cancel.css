@@ -1,0 +1,78 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+a{
+    text-decoration: none;
+}
+.success {
+    box-shadow: 0 15px 25px #00000019;
+    padding: 45px;
+    width: 50%;
+    text-align: center;
+    margin: 40px auto;
+    border-bottom: solid 4px #28a745;
+}
+#canceled{
+    border-bottom: solid 4px red;
+}
+.success i {
+    font-size: 55px;
+    color: #28a745;
+}
+
+.success h2 {
+    margin-bottom: 12px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 10px;
+}
+
+.success p {
+    margin-bottom: 25px;
+    font-size: 18px;
+    color: #495057;
+    font-weight: 500;
+}
+.centered {
+    display: flex;
+    justify-content: center; /* Добавлено свойство для центрирования по горизонтали */
+    align-items: center;
+    height: 100%;
+    margin-bottom: -20px;
+}
+/* CSS */
+.button-88 {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(0deg, rgba(20,167,62,1) 0%, rgba(102,247,113,1) 100%);
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+  cursor: pointer;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+#button_canceled{
+    background: red;
+}
+
+.button-88:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.button-88:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
+}

@@ -1,0 +1,154 @@
+[
+{
+    "model": "villa.apartment",
+    "pk": 1,
+    "fields": {
+        "name": "18 Old Street Miami, OR 97219",
+        "country": "USA",
+        "city": "Miami",
+        "bedrooms": 8,
+        "bathrooms": 8,
+        "area": 545,
+        "floor": "3",
+        "parking_places": "6 spots",
+        "price": "2264000.00",
+        "description": "",
+        "image": "images/property-03.jpg",
+        "when_was_built": "2023-10-10T09:15:34.346Z",
+        "category": 1
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 2,
+    "fields": {
+        "name": "26 Mid Street Portland, OR 38540",
+        "country": "USA",
+        "city": "Portland",
+        "bedrooms": 5,
+        "bathrooms": 4,
+        "area": 225,
+        "floor": "3",
+        "parking_places": "10 spots",
+        "price": "1460000.00",
+        "description": "",
+        "image": "images/property-05.jpg",
+        "when_was_built": "2023-10-10T09:17:19.070Z",
+        "category": 1
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 3,
+    "fields": {
+        "name": "12 Hope Street Portland, OR 12650",
+        "country": "USA",
+        "city": "Portland",
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "area": 125,
+        "floor": "25th",
+        "parking_places": "2 cars",
+        "price": "584500.00",
+        "description": "",
+        "image": "images/property-01.jpg",
+        "when_was_built": "2023-10-10T09:18:04.592Z",
+        "category": 2
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 4,
+    "fields": {
+        "name": "34 Hope Street Portland, OR 42680",
+        "country": "USA",
+        "city": "Portland",
+        "bedrooms": 4,
+        "bathrooms": 4,
+        "area": 180,
+        "floor": "38th",
+        "parking_places": "2 cars",
+        "price": "925600.00",
+        "description": "",
+        "image": "images/main-villa_hera-1600x1000.jpg",
+        "when_was_built": "2023-10-10T09:18:55.106Z",
+        "category": 3
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 5,
+    "fields": {
+        "name": "22 Hope Street Portland, OR 16540",
+        "country": "USA",
+        "city": "Portland",
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "area": 165,
+        "floor": "26th",
+        "parking_places": "3 cars",
+        "price": "450000.00",
+        "description": "",
+        "image": "images/property-04.jpg",
+        "when_was_built": "2023-10-10T09:19:46.183Z",
+        "category": 4
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 6,
+    "fields": {
+        "name": "14 Mid Street Miami, OR 36450",
+        "country": "USA",
+        "city": "Miami",
+        "bedrooms": 8,
+        "bathrooms": 8,
+        "area": 550,
+        "floor": "3",
+        "parking_places": "12 spots",
+        "price": "980000.00",
+        "description": "",
+        "image": "images/property-02.jpg",
+        "when_was_built": "2023-10-10T09:21:50.563Z",
+        "category": 1
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 7,
+    "fields": {
+        "name": "26 Old Street Miami, OR 12870",
+        "country": "USA",
+        "city": "Miami",
+        "bedrooms": 15,
+        "bathrooms": 12,
+        "area": 380,
+        "floor": "3",
+        "parking_places": "14 spots",
+        "price": "1520000.00",
+        "description": "",
+        "image": "images/property-06.jpg",
+        "when_was_built": "2023-10-10T09:23:45.038Z",
+        "category": 1
+    }
+},
+{
+    "model": "villa.apartment",
+    "pk": 8,
+    "fields": {
+        "name": "34 New Street Miami, OR 24650",
+        "country": "USA",
+        "city": "Miami",
+        "bedrooms": 15,
+        "bathrooms": 15,
+        "area": 500,
+        "floor": "3",
+        "parking_places": "10 spots",
+        "price": "3145000.00",
+        "description": "Description\r\nОписание",
+        "image": "images/villa8.png",
+        "when_was_built": "2023-10-10T09:26:38.889Z",
+        "category": 1
+    }
+}
+]

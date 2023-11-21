@@ -1,0 +1,11 @@
+{% extends 'orders/base.html' %}
+{% block message %}
+    <div class="message-box success">
+         <i class="fa-solid fa-check fa-2xs"></i>
+        <h2> Your payment was successful </h2>
+       <p> Thank you for your payment. We will be in contact with more details shortly </p>
+       <div class='centered'>
+            <button class="button-88" role="button"><a href="{% url 'index' %}">Continue</a></button>
+       </div>
+    </div>
+{% endblock %}

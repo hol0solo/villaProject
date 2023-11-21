@@ -1,0 +1,98 @@
+{% extends 'villa/base.html' %}
+{% load static humanize %}
+{% block main %}
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <span class="breadcrumb"><a href="#">Home</a> / Properties</span>
+          <h3>Properties</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section properties">
+    <div class="container">
+      <ul class="properties-filter">
+        <li>
+          <a href="{% url 'villa:properties' %}" data-filter="*">Show All</a>
+        </li>
+        {% for category in categories %}
+        <li>
+          <a href="{% url 'villa:category' category.id %}">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+      <!-- Заменить элементы на базу данных -->
+      <div class="row properties-box">
+        {% for apartment in apartments %}
+        <div class="col-lg-4 col-md-6 align-self-center mb-30 properties-items col-md-6 adv">
+          <div class="item">
+            <a href="{% url 'villa:property_detail' apartment.id %}"><img src="{{ apartment.image.url }}" alt=""></a>
+            <span class="category">{{ apartment.category }}</span>
+            <h6>${{ apartment.price|intcomma }}</h6>
+            <h4><a href="property-details.html">{{ apartment.name }}</a></h4>
+            <ul>
+              <li>Bedrooms: <span>{{ apartment.bedrooms }}</span></li>
+              <li>Bathrooms: <span>{{ apartment.bathrooms }}</span></li>
+              <li>Area: <span>{{ apartment.area }}m2</span></li>
+              <li>Floor: <span>{{ apartment.floor }}</span></li>
+              <li>Parking: <span>{{ apartment.parking_places }}</span></li>
+            </ul>
+            <div class="main-button">
+              <a href="{% url 'villa:basket_add' apartment.id %}">Purchase</a>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- Конец элементов -->
+      <div class="row">
+        <div class="col-lg-12">
+          {% if is_paginated %}
+          <ul class="pagination">
+            <li>
+                {% if page_obj.has_previous %}
+                    {% if apartment_category_id %}
+                        <a href="{% url 'villa:paginator_filter' apartment_category_id page_obj.previous_page_number %}"><<</a>
+                    {% else %}
+                        <a href="{% url 'villa:paginator' page_obj.previous_page_number %}"><<</a>
+                    {% endif %}
+
+                {% endif %}
+            </li>
+            {% for page in page_obj.paginator.page_range %}
+                <li>
+                    {% if apartment_category_id %}
+                        {% if page == page_obj.number %}
+                            <a href="{% url 'villa:paginator_filter' apartment_category_id page %}" class="is_active">{{ page }}</a>
+                        {% else %}
+                            <a href="{% url 'villa:paginator_filter' apartment_category_id page %}">{{ page }}</a>
+                        {% endif %}
+                    {% else %}
+                        {% if page == page_obj.number %}
+                            <a href="{% url 'villa:paginator' page %}" class="is_active">{{ page }}</a>
+                        {% else %}
+                            <a href="{% url 'villa:paginator' page %}">{{ page }}</a>
+                        {% endif %}
+                    {% endif %}
+                </li>
+            {% endfor %}
+
+            <li>
+                {% if page_obj.has_next %}
+                    {% if apartment_category_id %}
+                        <a href="{% url 'villa:paginator_filter' apartment_category_id page_obj.next_page_number %}">>></a>
+                    {% else %}
+                        <a href="{% url 'villa:paginator' page_obj.next_page_number %}">>></a>
+                    {% endif %}
+                {% endif %}
+            </li>
+          </ul>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

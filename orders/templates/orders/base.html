@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='{% static 'orders/success_and_cancel.css' %}'>
+</head>
+<body>
+    <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-5">
+                    {% block message %}
+
+                    {% endblock %}
+                </div>
+            </div>
+    </div>
+    <script src="https://kit.fontawesome.com/f627e79a1f.js" crossorigin="anonymous"></script>
+</body>

@@ -1,0 +1,44 @@
+{% extends 'villa/base.html' %}
+{% load static humanize %}
+{% block connections %}
+    <link rel="stylesheet" href="{% static 'orders/orders.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+{% endblock %}
+{% block main %}
+  <div class="title">
+    My Orders
+  </div>
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Order Name</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+    <tbody>
+    {% for order in object_list %}
+      <tr>
+        <td><a href='{% url 'orders:order-detail' order.id %}'>{{ order.id }}</a></td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.creation_date|naturaltime }}</td>
+        <td>
+            {% if order.basket_history.total_sum %}
+                ${{ order.basket_history.total_sum|intcomma }}</td>
+            {% else %}
+                -
+            {% endif %}
+        {% if order.status == 0 %}
+            <td class="created">{{ order.get_status_display }}</td>
+        {% elif order.status == 2 %}
+            <td class="delivered">{{ order.get_status_display }}</td>
+        {% endif %}
+      </tr>
+    {% endfor %}
+    </tbody>
+    </table>
+  </div>
+{% endblock %}

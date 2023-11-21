@@ -1,0 +1,12 @@
+{% extends 'orders/base.html' %}
+{% block message %}
+    <div class="message-box success" id='canceled'>
+         <i class="fa-solid fa-ban" style="color: #ff0000;"></i>
+        <h2> Your payment was canceled </h2>
+       <p>Don't like it? See other apartments</p>
+       <div class='centered'>
+            <button class="button-88" role="button" id='button_canceled'><a href="{% url 'villa:properties' %}">Continue</a></button>
+        </div>
+    </div>
+{% endblock %}
+

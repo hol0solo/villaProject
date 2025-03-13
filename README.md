@@ -1,67 +1,76 @@
-# Проект: Сайт по продаже вилл
+# Villa Project
 
-## Описание
-Проект представляет собой веб-приложение для продажи вилл, разработанное с использованием Django. Сайт позволяет пользователям просматривать, фильтровать и искать доступные виллы, а также взаимодействовать с системой через личные кабинеты.
-
-## Функционал
-- Регистрация и авторизация пользователей
-- Просмотр каталога вилл с фильтрами
-- Детальная страница каждой виллы
-- Управление объявлениями (CRUD)
-- Логирование через социальные сети (OAuth v2.0)
-- Прием платежей через Stripe
+Проект по продаже вилл, созданный с использованием Django. Включает интеграцию Stripe для оплаты, кастомное логирование через соцсети и асинхронную обработку задач с Celery.
 
 ## Стек технологий
-- **Backend:** Python 3+, Django 4.2
-- **БД:** PostgreSQL
-- **Асинхронные задачи:** Celery + Redis
-- **API:** Django REST Framework, WebHook
-- **Аутентификация:** OAuth v2.0
-- **Платежная система:** Stripe
-- **Логирование:** Кастомная настройка логов
+
+- Python 3+
+- Django 4.2
+- Celery + Redis
+- PostgreSQL
+- OAuth v2.0, WebHook
+- Django REST Framework (DRF)
+- Stripe
+- SQLAlchemy
 
 ## Установка и запуск
-1. Клонируйте репозиторий:
-   ```bash
-   git clone https://github.com/hol0solo/villaProject.git
-   cd villaProject
-   ```
+
+1. Клонируйте репозиторий и перейдите в папку проекта:
+
+```bash
+git clone https://github.com/hol0solo/villaProject.git
+cd villaProject
+```
+
 2. Создайте виртуальное окружение и активируйте его:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate
-   ```
+
+```bash
+python3.9 -m venv venv
+source venv/bin/activate
+```
+
 3. Установите зависимости:
-   ```bash
-   pip install -r requirements.txt
-   ```
-4. Настройте переменные окружения, создав файл `.env` и добавив в него:
-   ```
-   DATABASE_URL=URL вашей базы данных PostgreSQL
-   STRIPE_SECRET_KEY=Ваш секретный ключ Stripe
-   OAUTH_CLIENT_ID=Ваш клиент ID OAuth
-   OAUTH_CLIENT_SECRET=Ваш клиент Secret OAuth
-   ```
-5. Выполните миграции и запустите сервер:
-   ```bash
-   python manage.py migrate
-   python manage.py runserver
-   ```
-6. Запустите Celery и Redis:
-   ```bash
-   redis-server
-   celery -A villaProject worker --loglevel=INFO
-   ```
+
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+4. Настройте файл `.env` с такими переменными:
+
+```plaintext
+SECRET_KEY=ваш_секретный_ключ
+STRIPE_SECRET_KEY=ваш_stripe_ключ
+DATABASE_URL=ваш_postgresql_url
+REDIS_URL=ваш_redis_url
+```
+
+5. Выполните миграции и загрузите фикстуры:
+
+```bash
+python manage.py migrate
+python manage.py loaddata villaProject/villa/fixtures/data.json
+python manage.py runserver
+```
+
+6. Запустите Redis и Celery:
+
+```bash
+redis-server
+celery -A villa worker --loglevel=INFO
+```
 
 ## Структура проекта
-- `core/` — основная логика приложения
-- `villas/` — приложение для управления виллами
-- `users/` — аутентификация и управление пользователями
-- `payments/` — обработка платежей через Stripe
 
-## Контакты
-Автор: [hol0solo](https://github.com/hol0solo)
+- `media/` — место для сбора фото и видео
+- `mixins/` — миксин, добавляющий название страницы
+- `orders/` — логика заказов + подключенный Stripe
+- `static/` — статичные файлы для отображения страниц
+- `templates/socialaccount/` — шаблоны для кастомного логирования
+- `users/` — логика работы с пользователями
+- `villa/` — основное приложение
 
 ## Лицензия
-Этот проект распространяется под лицензией MIT.
+
+Проект распространяется под лицензией MIT.
 
